@@ -33,7 +33,7 @@ WorkingHours::Config.holidays = [
 start_time = Date.new(2013, 11, 1)
 end_time = Date.new(2015, 02, 28)
 
-CSV.open('export.csv', 'wb', headers: true, force_quotes: true, col_sep: ';') do |csv|
+CSV.open('export.csv', 'wb', headers: true, force_quotes: true, col_sep: ',') do |csv|
   start_time.upto(end_time).each do |day|
     if day.working_day?
       start_time = WorkingHours.advance_to_working_time(day.beginning_of_day)
